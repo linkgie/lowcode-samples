@@ -1,5 +1,5 @@
 {
-  "name": "lowcode-development-platform-ui",
+  "name": "lowcode.demos.app.contracts.ui",
   "version": "1.0.0",
   "private": true,
   "scripts": {

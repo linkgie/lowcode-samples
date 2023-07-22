@@ -1,6 +1,5 @@
 stages:
   - build
-  - triggger
 
 # 定义 job
 mvndeploy:
@@ -10,25 +9,17 @@ mvndeploy:
     - master
   script:
     # 编译前端项目；
-    - cd dev-platform-ui/dev-platform-web
+    - cd app-contracts/ui/web
     - npm install
     - npm run build
     - cd ../../
     - echo Completed building of the ui projects!
-    - ls dev-platform-ui/dev-platform-web/dist
+    - ls ui/web/dist
     # 编译打包后端项目；
-    - mvn clean deploy
+    - mvn clean package
+    - cd ..
 
   cache:
     paths:
-      - dev-platform-ui/dev-platform-web/node_modules/
+      - app-contracts/ui/web/node_modules/
 
-develop_trigger:
-  stage: triggger
-  only:
-    - develop
-  script:
-    #- echo TRIGGER BRANCH:$CI_COMMIT_REF_NAME
-    # 无论是 develop 分支还是 master 分支提交，都触发 products 项目的 develop 构建待测试的发行安装包；
-    # 注： products 项目的 master 分支只应手动触发；
-    - "curl -X POST -F token=eae9b0e7037912e12cfa66f42c502d -F ref=develop https://git.linkgie.com/api/v4/projects/52/trigger/pipeline"

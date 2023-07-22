@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.linkgie.lowcode.dev.platform</groupId>
+		<groupId>com.linkgie.lowcode.demos.app.contracts</groupId>
 		<artifactId>root</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>dev-platform-ui</artifactId>
+	<artifactId>ui</artifactId>
 
 
 
@@ -17,7 +17,7 @@
 	<build>
 		<resources>
 			<resource>
-				<directory>${project.basedir}/dev-platform-web/dist</directory>
+				<directory>${project.basedir}/web/dist</directory>
 				<targetPath>${destinationDir}</targetPath>
 			</resource>
 		</resources>

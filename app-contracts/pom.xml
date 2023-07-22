@@ -5,16 +5,16 @@
 		<artifactId>project</artifactId>
 		<version>2.2.0.RELEASE</version>
 	</parent>
-	<groupId>com.linkgie.lowcode.dev.platform</groupId>
+	<groupId>com.linkgie.lowcode.demos.app.contracts</groupId>
 	<artifactId>root</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>dev-platform-ui</module>
-		<module>dev-platform-profiles</module>
-		<module>dev-platform-module</module>
-		<module>dev-platform-booter</module>
+		<module>ui</module>
+		<module>profiles</module>
+		<module>module</module>
+		<module>booter</module>
 	</modules>
 
 
