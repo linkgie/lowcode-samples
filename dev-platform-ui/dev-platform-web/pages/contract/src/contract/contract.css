@@ -1,0 +1,25 @@
+.view-body {
+    width: 100%;
+    height: 100%;
+  
+    display: flex;
+    flex-direction: row;
+    column-gap: 24px;
+  
+    padding-top: 12px;
+    padding-right: 12px;
+  }
+  
+  .packages-card{
+      width: 100%;
+      min-height: 800px;
+  }
+  
+  .packages-header {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .types-board{
+      padding: 8px;
+  }

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+
+<x-dataform
+    title="合同管理"
+    field-columns="2"
+    default-field-span="1"
+    :field-spans="{remark:2,address:2}"
+    label-width="120px"
+
+    writeonly
+    data-interface="com.linkgie.lowcode.dev.platform.demo.data.ContractVO"
+    form-interface="com.linkgie.lowcode.dev.platform.demo.data.ContractInfoVI,
+    com.linkgie.lowcode.dev.platform.demo.data.ContractDepartmentInfoVI,
+    com.linkgie.lowcode.dev.platform.demo.data.ContractOtherInfo"
+    :reference-databindings="{persons:'ds-person',handing_department:'ds-department',depariment:'ds-department'}"
+    :metadata="metadata"
+    data-binding="ds-demo"
+>
+</x-dataform>
+
+<x-datasource
+    name="ds-demo"
+    model="com.linkgie.lowcode.dev.platform.demo.data.ContractVO"
+    default-current-row-index="0"
+>
+    <x-http-binding name="query" service="contract-controller" method="GET" path="/contract/list" refresh></x-http-binding>
+    <x-http-binding name="update" service="contract-controller" method="PUT" path="/contract" refresh></x-http-binding>
+</x-datasource>
+
+<x-datasource
+    name="ds-department"
+    model="com.linkgie.lowcode.dev.platform.demo.data.DepartmentVO"
+    default-current-row-index="0"
+>
+    <x-http-binding name="query" service="department-controller" method="GET" path="/department/list" refresh></x-http-binding>
+    
+</x-datasource>
+
+<x-datasource
+    name="ds-person"
+    model="com.linkgie.lowcode.dev.platform.demo.data.PersonVO"
+    default-current-row-index="0"
+>
+    <x-http-binding name="query" service="person-controller" method="GET" path="/person/list" refresh></x-http-binding>
+    
+</x-datasource>
+

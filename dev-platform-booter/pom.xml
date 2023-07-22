@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.linkgie.lowcode.dev.platform</groupId>
+		<artifactId>root</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>dev-platform-booter</artifactId>
+
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.linkgie.lowcode.dev.platform</groupId>
+			<artifactId>dev-platform-module</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- 启动器 SDK ：启动本机部署 Galaxy 中间件加载当前项目的相关模块，实现调试运行的目的  。-->
+		<dependency>
+			<groupId>com.linkgie.galaxytools.middleware</groupId>
+			<artifactId>middleware-runner</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
