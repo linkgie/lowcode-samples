@@ -19,8 +19,8 @@
 
 
 	<properties>
-		<galaxyframework.version>2.4.2-SNAPSHOT</galaxyframework.version>
-		<galaxytools.version>2.4.2-SNAPSHOT</galaxytools.version>
+		<galaxyframework.version>2.5.0-SNAPSHOT</galaxyframework.version>
+		<galaxytools.version>2.5.0-SNAPSHOT</galaxytools.version>
 	</properties>
 
 	<dependencyManagement>
