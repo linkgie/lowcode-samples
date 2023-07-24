@@ -3,53 +3,60 @@ package com.linkgie.lowcode.demo.contracts.web.model;
 import com.linkgie.galaxyframework.metadata.DataInterface;
 
 import java.math.BigDecimal;
+
+/**
+ * 合同基本信息；
+ * 
+ * @author huanghaiquan
+ *
+ */
 @DataInterface(topic = "合同信息")
 public interface ContractInfoVI {
-    String getCode();
+	String getCode();
 
-    void setCode(String contract_number);
+	void setCode(String contract_number);
 
-    String getTitle();
+	String getTitle();
 
-    void setTitle(String contract_name);
+	void setTitle(String contract_name);
 
-    String getCustomerName();
+	String getCustomerName();
 
-    void setCustomerName(String customer_name);
+	void setCustomerName(String customer_name);
 
-    BigDecimal getAmount();
+	BigDecimal getAmount();
 
-    void setAmount(BigDecimal contract_amount);
+	void setAmount(BigDecimal contract_amount);
 
-    String getContact();
+	String getContact();
 
-    void setContact(String contact);
+	void setContact(String contact);
 
-    String getCustomerContactNumber();
+	String getCustomerContactNumber();
 
-    void setCustomerContactNumber(String contact_number);
+	void setCustomerContactNumber(String contact_number);
 
-    String getAddress();
+	String getAddress();
 
-    void setAddress(String address);
+	void setAddress(String address);
 
-    long getSignedDate();
+	Long getSignedDate();
 
-    void setSignedDate(long signed_date);
+	void setSignedDate(Long signed_date);
 
-    ContractProcessStatus getContractProcessStatus();
+	ContractProcessStatus getContractProcessStatus();
 
-    void setContractProcessStatus(ContractProcessStatus contractStatus);
+	void setContractProcessStatus(ContractProcessStatus contractStatus);
 
-    PaymentType getPaymentType();
+	PaymentType getPaymentType();
 
-    void setPaymentType(PaymentType checkedMethod);
+	void setPaymentType(PaymentType checkedMethod);
 
-    long getProjectStartDate();
+	Long getProjectStartDate();
 
-    void setProjectStartDate(long contract_start_date);
+	void setProjectStartDate(Long contract_start_date);
 
-    long getProjectCompletionDate();
+	Long getProjectCompletionDate();
 
-    void setProjectCompletionDate(long contract_end_date);
+	void setProjectCompletionDate(Long contract_end_date);
 }

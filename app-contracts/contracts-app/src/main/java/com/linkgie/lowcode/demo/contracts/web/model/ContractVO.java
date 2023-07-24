@@ -6,6 +6,12 @@ import com.linkgie.galaxyframework.metadata.*;
 import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
+/**
+ * 项目合同；
+ * 
+ * @author huanghaiquan
+ *
+ */
 @DataEntity
 @DataInterface
 public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, ContractExtInfoVI {
@@ -55,7 +61,7 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
 	@NotBlank
 	@DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
 	@DataField(name = "签订日期", order = 21)
-	private long signedDate;
+	private Long signedDate;
 	
 
 	@NotBlank
@@ -74,12 +80,12 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
 	@NotBlank
 	@DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
 	@DataField(name = "项目开始日期", order = 25)
-	private long projectStartDate;
+	private Long projectStartDate;
 
 	@NotBlank
 	@DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
 	@DataField(name = "项目完成日期", order = 26)
-	private long projectCompletionDate;
+	private Long projectCompletionDate;
 
 
 	@DataType(contentType = "plain;multiline=true")
@@ -190,22 +196,22 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
 	}
 
 	@Override
-	public long getProjectStartDate() {
+	public Long getProjectStartDate() {
 		return projectStartDate;
 	}
 
 	@Override
-	public void setProjectStartDate(long projectStartDate) {
+	public void setProjectStartDate(Long projectStartDate) {
 		this.projectStartDate = projectStartDate;
 	}
 
 	@Override
-	public long getProjectCompletionDate() {
+	public Long getProjectCompletionDate() {
 		return projectCompletionDate;
 	}
 
 	@Override
-	public void setProjectCompletionDate(long projectCompletionDate) {
+	public void setProjectCompletionDate(Long projectCompletionDate) {
 		this.projectCompletionDate = projectCompletionDate;
 	}
 
@@ -220,12 +226,12 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
 	}
 
 	@Override
-	public long getSignedDate() {
+	public Long getSignedDate() {
 		return signedDate;
 	}
 
 	@Override
-	public void setSignedDate(long signedDate) {
+	public void setSignedDate(Long signedDate) {
 		this.signedDate = signedDate;
 	}
 
