@@ -4,19 +4,15 @@ import com.linkgie.galaxyframework.metadata.DataInterface;
 
 @DataInterface(topic = "部门信息")
 public interface ContractDepartmentInfoVI {
-    String getDepariment();
+    String getSalesDepartment();
 
-    void setDepariment(String depariment);
+    void setSalesDepartment(String depariment);
 
-    String getSigned_date();
+    String[] getSalesEmployees();
 
-    void setSigned_date(String signed_date);
+    void setSalesEmployees(String[] persons);
 
-    String[] getPersons();
+    String[] getSupportsDepartments();
 
-    void setPersons(String[] persons);
-
-    String[] getHanding_department();
-
-    void setHanding_department(String[] handing_department);
+    void setSupportsDepartments(String[] handing_department);
 }

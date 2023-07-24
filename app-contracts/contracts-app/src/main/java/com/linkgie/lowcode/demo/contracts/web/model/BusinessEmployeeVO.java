@@ -3,15 +3,13 @@ package com.linkgie.lowcode.demo.contracts.web.model;
 import com.linkgie.galaxyframework.metadata.*;
 
 @DataEntity
-@DataInterface
-public class DepartmentVO implements DepartmentVI {
-
+public class BusinessEmployeeVO implements BusinessEmployeeVI {
     @DataKey
-    @DataField(name="ID",readonly = true,order = 0)
+    @DataField(name="Id",readonly = true,order = 0)
     private String id;
 
     @DataLabel
-    @DataField(name="部门名称",order = 1)
+    @DataField(name="名称",order = 1)
     private String name;
 
     public String getId() {

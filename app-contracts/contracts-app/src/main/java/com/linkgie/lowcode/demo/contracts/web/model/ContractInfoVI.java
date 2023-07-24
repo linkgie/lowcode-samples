@@ -5,47 +5,51 @@ import com.linkgie.galaxyframework.metadata.DataInterface;
 import java.math.BigDecimal;
 @DataInterface(topic = "合同信息")
 public interface ContractInfoVI {
-    String getContract_number();
+    String getCode();
 
-    void setContract_number(String contract_number);
+    void setCode(String contract_number);
 
-    String getContract_name();
+    String getTitle();
 
-    void setContract_name(String contract_name);
+    void setTitle(String contract_name);
 
-    String getCustomer_name();
+    String getCustomerName();
 
-    void setCustomer_name(String customer_name);
+    void setCustomerName(String customer_name);
 
-    BigDecimal getContract_amount();
+    BigDecimal getAmount();
 
-    void setContract_amount(BigDecimal contract_amount);
+    void setAmount(BigDecimal contract_amount);
 
     String getContact();
 
     void setContact(String contact);
 
-    String getContact_number();
+    String getCustomerContactNumber();
 
-    void setContact_number(String contact_number);
+    void setCustomerContactNumber(String contact_number);
 
     String getAddress();
 
     void setAddress(String address);
 
-    ContractStatus getContractStatus();
+    long getSignedDate();
 
-    void setContractStatus(ContractStatus contractStatus);
+    void setSignedDate(long signed_date);
 
-    PaymentType getCheckedMethod();
+    ContractProcessStatus getContractProcessStatus();
 
-    void setCheckedMethod(PaymentType checkedMethod);
+    void setContractProcessStatus(ContractProcessStatus contractStatus);
 
-    long getContract_start_date();
+    PaymentType getPaymentType();
 
-    void setContract_start_date(long contract_start_date);
+    void setPaymentType(PaymentType checkedMethod);
 
-    long getContract_end_date();
+    long getProjectStartDate();
 
-    void setContract_end_date(long contract_end_date);
+    void setProjectStartDate(long contract_start_date);
+
+    long getProjectCompletionDate();
+
+    void setProjectCompletionDate(long contract_end_date);
 }

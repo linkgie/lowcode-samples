@@ -3,37 +3,37 @@ package com.linkgie.lowcode.demo.contracts.web;
 import com.linkgie.galaxyframework.utils.CollectionUtils;
 import com.linkgie.galaxyframework.web.HttpGet;
 import com.linkgie.galaxyframework.web.HttpService;
-import com.linkgie.lowcode.demo.contracts.web.model.PersonVO;
+import com.linkgie.lowcode.demo.contracts.web.model.BusinessEmployeeVO;
 
 import javax.annotation.PostConstruct;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @HttpService
-public class PersonController {
+public class EmployeeController {
 
-    private Map<String, PersonVO> personVOMap = new LinkedHashMap<String, PersonVO>();
+    private Map<String, BusinessEmployeeVO> personVOMap = new LinkedHashMap<String, BusinessEmployeeVO>();
 
     @PostConstruct
     private void init(){
         //未连接数据库，此为模拟数据
-        PersonVO personVO1 = new PersonVO();
+        BusinessEmployeeVO personVO1 = new BusinessEmployeeVO();
         personVO1.setId("1");
         personVO1.setName("张三");
 
-        PersonVO personVO2 = new PersonVO();
+        BusinessEmployeeVO personVO2 = new BusinessEmployeeVO();
         personVO2.setId("2");
         personVO2.setName("李四");
 
-        PersonVO personVO3 = new PersonVO();
+        BusinessEmployeeVO personVO3 = new BusinessEmployeeVO();
         personVO3.setId("3");
         personVO3.setName("王五");
 
-        PersonVO personVO4 = new PersonVO();
+        BusinessEmployeeVO personVO4 = new BusinessEmployeeVO();
         personVO4.setId("4");
         personVO4.setName("赵六");
 
-        PersonVO personVO5 = new PersonVO();
+        BusinessEmployeeVO personVO5 = new BusinessEmployeeVO();
         personVO5.setId("5");
         personVO5.setName("陈七");
 
@@ -44,9 +44,9 @@ public class PersonController {
         personVOMap.put(personVO5.getId(), personVO5);
     }
 
-    @HttpGet("/person/all")
-    public synchronized PersonVO[] getAll(){
+    @HttpGet("/employee/all")
+    public synchronized BusinessEmployeeVO[] getAll(){
 
-        return CollectionUtils.toArray(personVOMap.values(),PersonVO.class);
+        return CollectionUtils.toArray(personVOMap.values(),BusinessEmployeeVO.class);
     }
 }

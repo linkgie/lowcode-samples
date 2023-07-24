@@ -25,13 +25,13 @@ public class ContractController {
 	@HttpGet("/contract/all")
 	public synchronized ContractVO[] getAll() {
 		ContractVO contractVO = new ContractVO();
-		contractVO.setContract_number("CN" + new Date().getTime());
+		contractVO.setCode("CN" + new Date().getTime());
 		return new ContractVO[] { contractVO };
 	}
 
 	@HttpPut("/contract")
 	public synchronized void addContract(@RequestBody ContractVO contractVO) {
-//         contractVO.setId("demo"+contractVOMap.size()+1);
+         contractVO.setId(idGenerator.generateIdAsBase58());
 		contractVOMap.put(contractVO.getId(), contractVO);
 	}
 }

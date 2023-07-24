@@ -3,7 +3,7 @@ package com.linkgie.lowcode.demo.contracts.web;
 import com.linkgie.galaxyframework.utils.CollectionUtils;
 import com.linkgie.galaxyframework.web.HttpGet;
 import com.linkgie.galaxyframework.web.HttpService;
-import com.linkgie.lowcode.demo.contracts.web.model.DepartmentVO;
+import com.linkgie.lowcode.demo.contracts.web.model.BusinessDepartmentVO;
 
 import javax.annotation.PostConstruct;
 import java.util.LinkedHashMap;
@@ -12,32 +12,32 @@ import java.util.Map;
 @HttpService
 public class DepartmentController {
 
-    private Map<String, DepartmentVO> departmentVOMap = new LinkedHashMap<String, DepartmentVO>();
+    private Map<String, BusinessDepartmentVO> departmentVOMap = new LinkedHashMap<String, BusinessDepartmentVO>();
 
     @PostConstruct
     private void init(){
         //未连接数据库，此为模拟数据
-        DepartmentVO departmentVO1 = new DepartmentVO();
+        BusinessDepartmentVO departmentVO1 = new BusinessDepartmentVO();
         departmentVO1.setId("1");
         departmentVO1.setName("市场部");
 
-        DepartmentVO departmentVO2 = new DepartmentVO();
+        BusinessDepartmentVO departmentVO2 = new BusinessDepartmentVO();
         departmentVO2.setId("2");
         departmentVO2.setName("销售部");
 
-        DepartmentVO departmentVO3 = new DepartmentVO();
+        BusinessDepartmentVO departmentVO3 = new BusinessDepartmentVO();
         departmentVO3.setId("3");
         departmentVO3.setName("行政部");
 
-        DepartmentVO departmentVO4 = new DepartmentVO();
+        BusinessDepartmentVO departmentVO4 = new BusinessDepartmentVO();
         departmentVO4.setId("4");
         departmentVO4.setName("总经办");
 
-        DepartmentVO departmentVO5 = new DepartmentVO();
+        BusinessDepartmentVO departmentVO5 = new BusinessDepartmentVO();
         departmentVO5.setId("5");
         departmentVO5.setName("财务部");
 
-        DepartmentVO departmentVO6 = new DepartmentVO();
+        BusinessDepartmentVO departmentVO6 = new BusinessDepartmentVO();
         departmentVO6.setId("6");
         departmentVO6.setName("技术部");
 
@@ -50,7 +50,7 @@ public class DepartmentController {
     }
 
     @HttpGet("/department/all")
-    public synchronized DepartmentVO[] getAll(){
-        return CollectionUtils.toArray(departmentVOMap.values(), DepartmentVO.class);
+    public synchronized BusinessDepartmentVO[] getAll(){
+        return CollectionUtils.toArray(departmentVOMap.values(), BusinessDepartmentVO.class);
     }
 }

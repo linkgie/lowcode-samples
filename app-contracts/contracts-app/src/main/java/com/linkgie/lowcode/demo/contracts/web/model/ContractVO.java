@@ -8,261 +8,264 @@ import java.math.BigDecimal;
 
 @DataEntity
 @DataInterface
-public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, ContractOtherInfo {
-    @DataKey
-    @DataField(name="ID",readonly = true,order = 0)
-    private String id;
+public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, ContractExtInfoVI {
+	@DataKey
+	@DataField(name = "ID", readonly = true, order = 0)
+	private String id;
 
-    @NotBlank
-    @DataField(name = "合同号",modifiable = false,order = 1)
-    private  String contract_number;
+	@NotBlank
+	@DataField(name = "合同号", modifiable = false, order = 1)
+	private String code;
 
-    @NotBlank
-    @DataField(name = "合同名称",order = 2)
-    private String contract_name;
+	@NotBlank
+	@DataField(name = "合同名称", order = 2)
+	private String title;
 
-    @NotBlank
-    @DataField(name = "客户名称",order = 3)
-    private String customer_name;
+	@NotBlank
+	@DecimalType(precision = 2, min="0.00", max="100000000")
+	@DataField(name = "合同金额", order = 3)
+	private BigDecimal amount = new BigDecimal("0");
 
-    @NotBlank
-    @DataField(name = "合同金额",order = 4)
-    private BigDecimal contract_amount;
+	@NotBlank
+	@DataField(name = "支付方式", order = 4)
+	private PaymentType paymentType;
 
-    @NotBlank
-    @DataField(name = "联系人",order = 5)
-    private String contact;
+	@NotBlank
+	@DataField(name = "客户名称", order = 10)
+	private String customerName;
 
-    @NotBlank
-    @DataField(name = "联系电话",order = 6)
-    private String contact_number;
+	@NotBlank
+	@DataField(name = "客户联系人", order = 11)
+	private String customerContact;
 
-    @DataType(contentType = "plain;multiline=true")
-    @DataField(name = "地址",order = 7)
-    private String address;
+	@NotBlank
+	@DataField(name = "客户联系电话", order = 12)
+	private String customerContactNumber;
 
-    @NotBlank
-    @DataField(name = "合同状态",order = 8)
-    private ContractStatus contractStatus;
+	@DataType(contentType = "plain;multiline=true")
+	@DataField(name = "客户公司地址", order = 13)
+	private String customerCompanyAddress;
 
-    @NotBlank
-    @DataField(name = "结账方式",order = 9)
-    private PaymentType checkedMethod;
+	
+	@NotBlank
+	@DataField(name = "合同进展状态", order = 20)
+	private ContractProcessStatus contractProcessStatus;
 
-    @NotBlank
-    @DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
-    @DataField(name = "合同开始日期",order = 10)
-    private long contract_start_date;
+	
+	@NotBlank
+	@DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
+	@DataField(name = "签订日期", order = 21)
+	private long signedDate;
+	
 
-    @NotBlank
-    @DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
-    @DataField(name = "合同结束日期",order = 11)
-    private long contract_end_date;
+	@NotBlank
+	@DataReference(model = BusinessDepartmentVO.class, interfase = BusinessDepartmentVI.class)
+	@DataField(name = "销售部门", order = 22)
+	private String salesDepartment;
+	
+	@DataReference(model = BusinessEmployeeVO.class, interfase = BusinessEmployeeVI.class)
+	@DataField(name = "销售人员", order = 23)
+	private String[] salesEmployees;
 
-    @NotBlank
-    @DataReference(model = DepartmentVO.class,interfase = DepartmentVI.class)
-    @DataField(name="部门信息",order = 12)
-    private String depariment;
+	@DataReference(model = BusinessDepartmentVO.class, interfase = BusinessDepartmentVI.class)
+	@DataField(name = "支持部门", order = 24)
+	private String[] supportsDepartments;
 
-    @NotBlank
-    @DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
-    @DataField(name="签订日期",order = 13)
-    private String signed_date;
+	@NotBlank
+	@DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
+	@DataField(name = "项目开始日期", order = 25)
+	private long projectStartDate;
 
-    @DataReference(model = PersonVO.class,interfase = PersonVI.class)
-    @DataField(name = "招商人员",order = 14)
-    private String[] persons;
-
-    @DataReference(model = DepartmentVO.class,interfase = DepartmentVI.class)
-    @DataField(name = "经办部门",order = 15)
-    private String[] handing_department;
-
-
-    @DataType(dataType = StandardType.TEXT,contentType = "plain;multiline=true")
-    @DataField(name = "备注",order = 13)
-    private String remark;
-
-    @NotBlank
-    @DataType(dataType = StandardType.OBJECT,contentType = "file;limits=6")
-    @DataField(name = "合同附件",order = 14)
-    private FileEntry[] annex;
+	@NotBlank
+	@DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
+	@DataField(name = "项目完成日期", order = 26)
+	private long projectCompletionDate;
 
 
-    public String getId() {
-        return id;
-    }
+	@DataType(contentType = "plain;multiline=true")
+	@DataField(name = "备注", order = 30)
+	private String remark;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	@NotBlank
+	@DataType(contentType = "file;limits=6")
+	@DataField(name = "合同附件", order = 31)
+	private FileEntry[] attachments;
 
-    @Override
-    public String getContract_number() {
-        return contract_number;
-    }
+	public String getId() {
+		return id;
+	}
 
-    @Override
-    public void setContract_number(String contract_number) {
-        this.contract_number = contract_number;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    @Override
-    public String getContract_name() {
-        return contract_name;
-    }
+	@Override
+	public String getCode() {
+		return code;
+	}
 
-    @Override
-    public void setContract_name(String contract_name) {
-        this.contract_name = contract_name;
-    }
+	@Override
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    @Override
-    public String getCustomer_name() {
-        return customer_name;
-    }
+	@Override
+	public String getTitle() {
+		return title;
+	}
 
-    @Override
-    public void setCustomer_name(String customer_name) {
-        this.customer_name = customer_name;
-    }
+	@Override
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    @Override
-    public BigDecimal getContract_amount() {
-        return contract_amount;
-    }
+	@Override
+	public String getCustomerName() {
+		return customerName;
+	}
 
-    @Override
-    public void setContract_amount(BigDecimal contract_amount) {
-        this.contract_amount = contract_amount;
-    }
+	@Override
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
 
-    @Override
-    public String getContact() {
-        return contact;
-    }
+	@Override
+	public BigDecimal getAmount() {
+		return amount;
+	}
 
-    @Override
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
+	@Override
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
 
-    @Override
-    public String getContact_number() {
-        return contact_number;
-    }
+	@Override
+	public String getContact() {
+		return customerContact;
+	}
 
-    @Override
-    public void setContact_number(String contact_number) {
-        this.contact_number = contact_number;
-    }
+	@Override
+	public void setContact(String contact) {
+		this.customerContact = contact;
+	}
 
-    @Override
-    public String getAddress() {
-        return address;
-    }
+	@Override
+	public String getCustomerContactNumber() {
+		return customerContactNumber;
+	}
 
-    @Override
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	@Override
+	public void setCustomerContactNumber(String customerContactNumber) {
+		this.customerContactNumber = customerContactNumber;
+	}
 
-    @Override
-    public ContractStatus getContractStatus() {
-        return contractStatus;
-    }
+	@Override
+	public String getAddress() {
+		return customerCompanyAddress;
+	}
 
-    @Override
-    public void setContractStatus(ContractStatus contractStatus) {
-        this.contractStatus = contractStatus;
-    }
+	@Override
+	public void setAddress(String address) {
+		this.customerCompanyAddress = address;
+	}
 
-    @Override
-    public PaymentType getCheckedMethod() {
-        return checkedMethod;
-    }
+	@Override
+	public ContractProcessStatus getContractProcessStatus() {
+		return contractProcessStatus;
+	}
 
-    @Override
-    public void setCheckedMethod(PaymentType checkedMethod) {
-        this.checkedMethod = checkedMethod;
-    }
+	@Override
+	public void setContractProcessStatus(ContractProcessStatus contractProcessStatus) {
+		this.contractProcessStatus = contractProcessStatus;
+	}
 
-    @Override
-    public long getContract_start_date() {
-        return contract_start_date;
-    }
+	@Override
+	public PaymentType getPaymentType() {
+		return paymentType;
+	}
 
-    @Override
-    public void setContract_start_date(long contract_start_date) {
-        this.contract_start_date = contract_start_date;
-    }
+	@Override
+	public void setPaymentType(PaymentType paymentType) {
+		this.paymentType = paymentType;
+	}
 
-    @Override
-    public long getContract_end_date() {
-        return contract_end_date;
-    }
+	@Override
+	public long getProjectStartDate() {
+		return projectStartDate;
+	}
 
-    @Override
-    public void setContract_end_date(long contract_end_date) {
-        this.contract_end_date = contract_end_date;
-    }
+	@Override
+	public void setProjectStartDate(long projectStartDate) {
+		this.projectStartDate = projectStartDate;
+	}
 
-    @Override
-    public String getDepariment() {
-        return depariment;
-    }
+	@Override
+	public long getProjectCompletionDate() {
+		return projectCompletionDate;
+	}
 
-    @Override
-    public void setDepariment(String depariment) {
-        this.depariment = depariment;
-    }
+	@Override
+	public void setProjectCompletionDate(long projectCompletionDate) {
+		this.projectCompletionDate = projectCompletionDate;
+	}
 
-    @Override
-    public String getSigned_date() {
-        return signed_date;
-    }
+	@Override
+	public String getSalesDepartment() {
+		return salesDepartment;
+	}
 
-    @Override
-    public void setSigned_date(String signed_date) {
-        this.signed_date = signed_date;
-    }
+	@Override
+	public void setSalesDepartment(String salesDepariment) {
+		this.salesDepartment = salesDepariment;
+	}
 
-    @Override
-    public String[] getPersons() {
-        return persons;
-    }
+	@Override
+	public long getSignedDate() {
+		return signedDate;
+	}
 
-    @Override
-    public void setPersons(String[] persons) {
-        this.persons = persons;
-    }
+	@Override
+	public void setSignedDate(long signedDate) {
+		this.signedDate = signedDate;
+	}
 
-    @Override
-    public String[] getHanding_department() {
-        return handing_department;
-    }
+	@Override
+	public String[] getSalesEmployees() {
+		return salesEmployees;
+	}
 
-    @Override
-    public void setHanding_department(String[] handing_department) {
-        this.handing_department = handing_department;
-    }
+	@Override
+	public void setSalesEmployees(String[] salsEmployees) {
+		this.salesEmployees = salsEmployees;
+	}
 
-    @Override
-    public String getRemark() {
-        return remark;
-    }
+	@Override
+	public String[] getSupportsDepartments() {
+		return supportsDepartments;
+	}
 
-    @Override
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+	@Override
+	public void setSupportsDepartments(String[] supportsDepartments) {
+		this.supportsDepartments = supportsDepartments;
+	}
 
-    @Override
-    public FileEntry[] getAnnex() {
-        return annex;
-    }
+	@Override
+	public String getRemark() {
+		return remark;
+	}
 
-    @Override
-    public void setAnnex(FileEntry[] annex) {
-        this.annex = annex;
-    }
+	@Override
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	@Override
+	public FileEntry[] getAttachments() {
+		return attachments;
+	}
+
+	@Override
+	public void setAttachments(FileEntry[] attachments) {
+		this.attachments = attachments;
+	}
 }
