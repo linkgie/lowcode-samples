@@ -1,8 +1,14 @@
-package com.linkgie.lowcode.dev.platform.demo.data;
+package com.linkgie.lowcode.demo.contracts.web.model;
 
 import com.linkgie.galaxyframework.metadata.DataLabel;
 
-public enum CheckedMethod {
+/**
+ * 支付方式；
+ * 
+ * @author huanghaiquan
+ *
+ */
+public enum PaymentType {
 
     CASH("现金"),
 
@@ -13,7 +19,7 @@ public enum CheckedMethod {
     @DataLabel
     public final String NAME;
 
-    private CheckedMethod(String name){
+    private PaymentType(String name){
         this.NAME = name;
     }
 }

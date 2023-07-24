@@ -1,4 +1,4 @@
-package com.linkgie.lowcode.dev.platform.demo.data;
+package com.linkgie.lowcode.demo.contracts.web.model;
 
 import com.linkgie.galaxyframework.metadata.DataLabel;
 

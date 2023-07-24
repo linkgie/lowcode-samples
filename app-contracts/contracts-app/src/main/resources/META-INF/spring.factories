@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.linkgie.lowcode.dev.platform.AppConfiguration
+com.linkgie.lowcode.demo.contracts.AppConfiguration

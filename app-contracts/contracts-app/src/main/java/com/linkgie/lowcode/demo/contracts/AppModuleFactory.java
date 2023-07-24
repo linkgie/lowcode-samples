@@ -1,4 +1,4 @@
-package com.linkgie.lowcode.dev.platform;
+package com.linkgie.lowcode.demo.contracts;
 
 import com.linkgie.galaxyframework.context.HomeContext;
 import com.linkgie.galaxyframework.module.Module;

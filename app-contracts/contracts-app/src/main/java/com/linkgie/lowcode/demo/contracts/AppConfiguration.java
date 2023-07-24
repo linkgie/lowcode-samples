@@ -1,4 +1,4 @@
-package com.linkgie.lowcode.dev.platform;
+package com.linkgie.lowcode.demo.contracts;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

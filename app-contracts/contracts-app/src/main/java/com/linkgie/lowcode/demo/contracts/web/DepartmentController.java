@@ -1,9 +1,9 @@
-package com.linkgie.lowcode.dev.platform.demo.web;
+package com.linkgie.lowcode.demo.contracts.web;
 
 import com.linkgie.galaxyframework.utils.CollectionUtils;
 import com.linkgie.galaxyframework.web.HttpGet;
 import com.linkgie.galaxyframework.web.HttpService;
-import com.linkgie.lowcode.dev.platform.demo.data.DepartmentVO;
+import com.linkgie.lowcode.demo.contracts.web.model.DepartmentVO;
 
 import javax.annotation.PostConstruct;
 import java.util.LinkedHashMap;
@@ -49,9 +49,8 @@ public class DepartmentController {
         departmentVOMap.put(departmentVO6.getId(), departmentVO6);
     }
 
-    @HttpGet("/department/list")
-    public synchronized DepartmentVO[] get(){
-
+    @HttpGet("/department/all")
+    public synchronized DepartmentVO[] getAll(){
         return CollectionUtils.toArray(departmentVOMap.values(), DepartmentVO.class);
     }
 }

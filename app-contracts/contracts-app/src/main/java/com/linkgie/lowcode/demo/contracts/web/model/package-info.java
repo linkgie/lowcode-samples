@@ -1,0 +1,1 @@
+package com.linkgie.lowcode.demo.contracts.web.model;

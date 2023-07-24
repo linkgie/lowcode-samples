@@ -1,4 +1,4 @@
-package com.linkgie.lowcode.dev.platform.demo.data;
+package com.linkgie.lowcode.demo.contracts.web.model;
 
 import com.linkgie.galaxyframework.fileservice.FileEntry;
 import com.linkgie.galaxyframework.metadata.*;
@@ -47,7 +47,7 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
 
     @NotBlank
     @DataField(name = "结账方式",order = 9)
-    private CheckedMethod checkedMethod;
+    private PaymentType checkedMethod;
 
     @NotBlank
     @DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
@@ -177,12 +177,12 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
     }
 
     @Override
-    public CheckedMethod getCheckedMethod() {
+    public PaymentType getCheckedMethod() {
         return checkedMethod;
     }
 
     @Override
-    public void setCheckedMethod(CheckedMethod checkedMethod) {
+    public void setCheckedMethod(PaymentType checkedMethod) {
         this.checkedMethod = checkedMethod;
     }
 

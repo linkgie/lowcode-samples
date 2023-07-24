@@ -1,50 +1,55 @@
 
 <!DOCTYPE html>
 
-<div style="width:100%; padding: 20px 200px; box-sizing: border-box; display: flex; justify-content:center; align-items:center;">
+<div class="demo">
+	<h2>合同管理</h2>
 	<x-dataform
-	    title="合同管理"
+		mode="simple"
+
+		width="auto"
+		
 	    field-columns="2"
 	    default-field-span="1"
 	    :field-spans="{remark:2,address:2}"
 	    label-width="120px"
+		dock-layout="bottom"
 	
 	    writeonly
-	    data-interface="com.linkgie.lowcode.dev.platform.demo.data.ContractVO"
-	    form-interface="com.linkgie.lowcode.dev.platform.demo.data.ContractInfoVI,
-	    com.linkgie.lowcode.dev.platform.demo.data.ContractDepartmentInfoVI,
-	    com.linkgie.lowcode.dev.platform.demo.data.ContractOtherInfo"
-	    :reference-databindings="{persons:'ds-person',handing_department:'ds-department',depariment:'ds-department'}"
-	    :metadata="metadata"
-	    data-binding="ds-demo"
+
+	    data-interface="com.linkgie.lowcode.demo.contracts.web.model.ContractInfoVI,
+	    				com.linkgie.lowcode.demo.contracts.web.model.ContractDepartmentInfoVI,
+	    				com.linkgie.lowcode.demo.contracts.web.model.ContractOtherInfo"
+		
+		:metadata="metadata"
+
+		data-binding="ds-contracts"
+		:reference-databindings="{persons:'ds-persons',handing_department:'ds-departments',depariment:'ds-departments'}"
 	>
 	</x-dataform>
 </div>
 
 <x-datasource
-    name="ds-demo"
-    model="com.linkgie.lowcode.dev.platform.demo.data.ContractVO"
+    name="ds-contracts"
+    model="com.linkgie.lowcode.demo.contracts.web.model.ContractVO"
     default-current-row-index="0"
 >
-    <x-http-binding name="query" service="contract-controller" method="GET" path="/contract/list" refresh></x-http-binding>
+    <x-http-binding name="query" service="contract-controller" method="GET" path="/contract/all" refresh></x-http-binding>
     <x-http-binding name="update" service="contract-controller" method="PUT" path="/contract" refresh></x-http-binding>
 </x-datasource>
 
 <x-datasource
-    name="ds-department"
-    model="com.linkgie.lowcode.dev.platform.demo.data.DepartmentVO"
+    name="ds-departments"
+    model="com.linkgie.lowcode.demo.contracts.web.model.DepartmentVO"
     default-current-row-index="0"
 >
-    <x-http-binding name="query" service="department-controller" method="GET" path="/department/list" refresh></x-http-binding>
-    
+	<x-http-binding name="query" service="department-controller" method="GET" path="/department/all" refresh></x-http-binding>
 </x-datasource>
 
 <x-datasource
-    name="ds-person"
-    model="com.linkgie.lowcode.dev.platform.demo.data.PersonVO"
+    name="ds-persons"
+    model="com.linkgie.lowcode.demo.contracts.web.model.PersonVO"
     default-current-row-index="0"
 >
-    <x-http-binding name="query" service="person-controller" method="GET" path="/person/list" refresh></x-http-binding>
-    
+    <x-http-binding name="query" service="person-controller" method="GET" path="/person/all" refresh></x-http-binding>
 </x-datasource>
 

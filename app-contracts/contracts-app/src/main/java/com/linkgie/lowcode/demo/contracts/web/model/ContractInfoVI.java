@@ -1,4 +1,4 @@
-package com.linkgie.lowcode.dev.platform.demo.data;
+package com.linkgie.lowcode.demo.contracts.web.model;
 
 import com.linkgie.galaxyframework.metadata.DataInterface;
 
@@ -37,9 +37,9 @@ public interface ContractInfoVI {
 
     void setContractStatus(ContractStatus contractStatus);
 
-    CheckedMethod getCheckedMethod();
+    PaymentType getCheckedMethod();
 
-    void setCheckedMethod(CheckedMethod checkedMethod);
+    void setCheckedMethod(PaymentType checkedMethod);
 
     long getContract_start_date();
 

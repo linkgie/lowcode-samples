@@ -1,6 +1,6 @@
-const {generateViewsRegisterJS} = require("./plugins/views-register-plugin.js");
+// const {generateViewsRegisterJS} = require("./plugins/views-register-plugin.js");
 
-const path = require("path");
+// const path = require("path");
 
 
 module.exports = {

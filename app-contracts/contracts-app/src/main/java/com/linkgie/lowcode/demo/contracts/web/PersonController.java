@@ -1,9 +1,9 @@
-package com.linkgie.lowcode.dev.platform.demo.web;
+package com.linkgie.lowcode.demo.contracts.web;
 
 import com.linkgie.galaxyframework.utils.CollectionUtils;
 import com.linkgie.galaxyframework.web.HttpGet;
 import com.linkgie.galaxyframework.web.HttpService;
-import com.linkgie.lowcode.dev.platform.demo.data.PersonVO;
+import com.linkgie.lowcode.demo.contracts.web.model.PersonVO;
 
 import javax.annotation.PostConstruct;
 import java.util.LinkedHashMap;
@@ -44,8 +44,8 @@ public class PersonController {
         personVOMap.put(personVO5.getId(), personVO5);
     }
 
-    @HttpGet("/person/list")
-    public synchronized PersonVO[] get(){
+    @HttpGet("/person/all")
+    public synchronized PersonVO[] getAll(){
 
         return CollectionUtils.toArray(personVOMap.values(),PersonVO.class);
     }
