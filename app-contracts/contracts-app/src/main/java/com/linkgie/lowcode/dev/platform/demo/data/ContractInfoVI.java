@@ -41,11 +41,11 @@ public interface ContractInfoVI {
 
     void setCheckedMethod(CheckedMethod checkedMethod);
 
-    String getContract_start_date();
+    long getContract_start_date();
 
-    void setContract_start_date(String contract_start_date);
+    void setContract_start_date(long contract_start_date);
 
-    String getContract_end_date();
+    long getContract_end_date();
 
-    void setContract_end_date(String contract_end_date);
+    void setContract_end_date(long contract_end_date);
 }

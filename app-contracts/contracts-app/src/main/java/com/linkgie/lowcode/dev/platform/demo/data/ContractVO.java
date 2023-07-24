@@ -37,7 +37,7 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
     @DataField(name = "联系电话",order = 6)
     private String contact_number;
 
-    @DataType(dataType = StandardType.TEXT,contentType = "plain;multiline=true")
+    @DataType(contentType = "plain;multiline=true")
     @DataField(name = "地址",order = 7)
     private String address;
 
@@ -52,12 +52,12 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
     @NotBlank
     @DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
     @DataField(name = "合同开始日期",order = 10)
-    private String contract_start_date;
+    private long contract_start_date;
 
     @NotBlank
     @DataType(dataType = StandardType.TIMESTAMP, contentType = "datetime;format='YYYY-MM-DD HH:mm:ss'")
     @DataField(name = "合同结束日期",order = 11)
-    private String contract_end_date;
+    private long contract_end_date;
 
     @NotBlank
     @DataReference(model = DepartmentVO.class,interfase = DepartmentVI.class)
@@ -187,22 +187,22 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
     }
 
     @Override
-    public String getContract_start_date() {
+    public long getContract_start_date() {
         return contract_start_date;
     }
 
     @Override
-    public void setContract_start_date(String contract_start_date) {
+    public void setContract_start_date(long contract_start_date) {
         this.contract_start_date = contract_start_date;
     }
 
     @Override
-    public String getContract_end_date() {
+    public long getContract_end_date() {
         return contract_end_date;
     }
 
     @Override
-    public void setContract_end_date(String contract_end_date) {
+    public void setContract_end_date(long contract_end_date) {
         this.contract_end_date = contract_end_date;
     }
 
