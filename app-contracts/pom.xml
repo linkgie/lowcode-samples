@@ -11,16 +11,14 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>ui</module>
-		<module>profiles</module>
-		<module>module</module>
-		<module>booter</module>
+		<module>contracts-ui</module>
+		<module>contracts-app</module>
 	</modules>
 
 
 	<properties>
-		<galaxyframework.version>2.5.0-SNAPSHOT</galaxyframework.version>
-		<galaxytools.version>2.5.0-SNAPSHOT</galaxytools.version>
+		<galaxyframework.version>2.5.1-SNAPSHOT</galaxyframework.version>
+		<galaxytools.version>2.5.1-SNAPSHOT</galaxytools.version>
 	</properties>
 
 	<dependencyManagement>

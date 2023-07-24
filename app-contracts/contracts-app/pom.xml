@@ -5,18 +5,18 @@
 		<artifactId>root</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
-	<artifactId>module</artifactId>
-	<description>应用的入口模块</description>
+	<artifactId>contracts-app</artifactId>
+	<packaging>gpk</packaging>
+	<description>低代码应用示例：合同管理</description>
+
+<properties>
+	<booter.name>ContractsAppBooter</booter.name>
+</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.linkgie.lowcode.demos.app.contracts</groupId>
-			<artifactId>profiles</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.linkgie.lowcode.demos.app.contracts</groupId>
-			<artifactId>ui</artifactId>
+			<artifactId>contracts-ui</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
@@ -46,6 +46,33 @@
 			<artifactId>utils-io</artifactId>
 		</dependency>
 
+		<!-- 启动器 SDK ：启动本机部署 Galaxy 中间件加载当前项目的相关模块，实现调试运行的目的  。-->
+		<dependency>
+			<groupId>com.linkgie.galaxytools.middleware</groupId>
+			<artifactId>middleware-runner</artifactId>
+		</dependency>
+
 	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.linkgie.galaxytools.plugins</groupId>
+				<artifactId>galaxy-app-plugin</artifactId>
+				<version>${galaxytools.version}</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+					<optimize>false</optimize>
+					<debug>true</debug>
+					<showDeprecation>false</showDeprecation>
+					<showWarnings>false</showWarnings>
+				</configuration>
+				<extensions>true</extensions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
