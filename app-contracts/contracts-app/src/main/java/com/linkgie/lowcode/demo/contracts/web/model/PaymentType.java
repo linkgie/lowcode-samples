@@ -14,7 +14,7 @@ public enum PaymentType {
 
     CHEQUE("支票"),
 
-    TRANSFER("转账");
+    CABLE_TRANSFER("电汇");
 
     @DataLabel
     public final String NAME;

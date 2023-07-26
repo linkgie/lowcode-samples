@@ -34,7 +34,7 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
 
 	@NotBlank
 	@DataField(name = "支付方式", order = 4)
-	private PaymentType paymentType;
+	private PaymentType paymentType = PaymentType.CASH;
 
 	@NotBlank
 	@DataField(name = "客户名称", order = 10)
@@ -93,8 +93,13 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
 	private String remark;
 
 	@NotBlank
+	@DataType(contentType = "image")
+	@DataField(name = "合同正文", order = 31)
+	private FileEntry[] contractPages;
+	
+	@NotBlank
 	@DataType(contentType = "file;limits=6")
-	@DataField(name = "合同附件", order = 31)
+	@DataField(name = "合同附件", order = 32)
 	private FileEntry[] attachments;
 
 	public String getId() {
@@ -273,5 +278,13 @@ public class ContractVO implements ContractInfoVI, ContractDepartmentInfoVI, Con
 	@Override
 	public void setAttachments(FileEntry[] attachments) {
 		this.attachments = attachments;
+	}
+
+	public FileEntry[] getContractPages() {
+		return contractPages;
+	}
+
+	public void setContractPages(FileEntry[] contractPages) {
+		this.contractPages = contractPages;
 	}
 }

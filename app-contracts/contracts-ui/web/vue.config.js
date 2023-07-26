@@ -9,7 +9,7 @@ module.exports = {
 
     demo: {
       template: "public/template.html",
-      entry: "pages/contract/src/main.js",
+      entry: "src/contracts-main.js",
       filename: "contract.html",
       title: "星河低代码 | 示例",
     },

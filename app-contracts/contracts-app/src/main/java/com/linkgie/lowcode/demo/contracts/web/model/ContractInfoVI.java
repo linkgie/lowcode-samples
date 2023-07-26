@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public interface ContractInfoVI {
 	String getCode();
 
-	void setCode(String contract_number);
+	void setCode(String code);
 
 	String getTitle();
 

@@ -11,12 +11,16 @@ import com.linkgie.galaxyframework.metadata.DataInterface;
  */
 @DataInterface(topic = "其他信息")
 public interface ContractExtInfoVI {
-	
-    String getRemark();
 
-    void setRemark(String remark);
+	String getRemark();
 
-    FileEntry[] getAttachments();
+	void setRemark(String remark);
 
-    void setAttachments(FileEntry[] attachments);
+	FileEntry[] getAttachments();
+
+	void setAttachments(FileEntry[] attachments);
+
+	FileEntry[] getContractPages();
+
+	void setContractPages(FileEntry[] contractPages);
 }

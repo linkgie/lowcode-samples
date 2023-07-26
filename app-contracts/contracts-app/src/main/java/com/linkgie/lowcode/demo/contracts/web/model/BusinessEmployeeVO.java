@@ -11,6 +11,12 @@ public class BusinessEmployeeVO implements BusinessEmployeeVI {
     @DataLabel
     @DataField(name="名称",order = 1)
     private String name;
+    
+    @DataField(name="级别",order = 2)
+    private JobLevel level;
+    
+    @DataField(name="负责行业",order = 3)
+    private String busness;
 
     public String getId() {
         return id;
@@ -29,4 +35,25 @@ public class BusinessEmployeeVO implements BusinessEmployeeVI {
     public void setName(String name) {
         this.name = name;
     }
+
+	@Override
+	public JobLevel getLevel() {
+		return level;
+	}
+
+	@Override
+	public void setLevel(JobLevel level) {
+		this.level = level;
+	}
+
+	@Override
+	public String getBusness() {
+		return busness;
+	}
+
+	@Override
+	public void setBusness(String busness) {
+		this.busness = busness;
+	}
+    
 }
