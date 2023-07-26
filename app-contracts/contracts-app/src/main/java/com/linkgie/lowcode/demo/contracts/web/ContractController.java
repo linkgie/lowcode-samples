@@ -19,7 +19,6 @@ public class ContractController {
 
 	private Map<String, ContractVO> contractVOMap = new LinkedHashMap<String, ContractVO>();
 
-	
 //	@HttpGet("/contract/all")
 //	public synchronized ContractVO[] getAll() {
 //		ContractVO contractVO = new ContractVO();
@@ -28,8 +27,15 @@ public class ContractController {
 //	}
 
 	@HttpPost("/contract")
-	public synchronized void addContract(@RequestBody ContractVO contractVO) {
-         contractVO.setId(idGenerator.generateIdAsBase58());
+	public synchronized ContractVO addContract(@RequestBody ContractVO contractVO) {
+		contractVO.setId(idGenerator.generateIdAsBase58());
 		contractVOMap.put(contractVO.getId(), contractVO);
+
+		String remark = contractVO.getRemark();
+		if (remark == null) {
+			remark = "";
+		}
+		remark = remark + "测试项目-" + System.currentTimeMillis();
+		return contractVO;
 	}
 }
