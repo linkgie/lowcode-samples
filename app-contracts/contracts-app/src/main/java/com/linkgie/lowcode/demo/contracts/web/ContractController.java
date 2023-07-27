@@ -18,14 +18,13 @@ public class ContractController {
 	private IdGenerator idGenerator;
 
 	private Map<String, ContractVO> contractVOMap = new LinkedHashMap<String, ContractVO>();
-
-//	@HttpGet("/contract/all")
-//	public synchronized ContractVO[] getAll() {
-//		ContractVO contractVO = new ContractVO();
-//		contractVO.setCode("CN" + new Date().getTime());
-//		return new ContractVO[] { contractVO };
-//	}
-
+	
+	/**
+	 * 接收前端提交的新的合同对象；
+	 * 
+	 * @param contractVO
+	 * @return
+	 */
 	@HttpPost("/contract")
 	public synchronized ContractVO addContract(@RequestBody ContractVO contractVO) {
 		contractVO.setId(idGenerator.generateIdAsBase58());

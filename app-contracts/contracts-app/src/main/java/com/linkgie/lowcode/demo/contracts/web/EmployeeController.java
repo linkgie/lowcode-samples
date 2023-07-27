@@ -15,6 +15,9 @@ public class EmployeeController {
 
     private Map<String, BusinessEmployeeVO> personVOMap = new LinkedHashMap<String, BusinessEmployeeVO>();
 
+    /**
+     * 初始化测试数据；
+     */
     @PostConstruct
     private void init(){
         //未连接数据库，此为模拟数据
@@ -55,6 +58,11 @@ public class EmployeeController {
         personVOMap.put(personVO5.getId(), personVO5);
     }
 
+    /**
+     * 返回候选的业务人员清单；
+     * 
+     * @return
+     */
     @HttpGet("/employee/all")
     public synchronized BusinessEmployeeVO[] getAll(){
 

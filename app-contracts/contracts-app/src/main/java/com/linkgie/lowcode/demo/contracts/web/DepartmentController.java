@@ -14,6 +14,9 @@ public class DepartmentController {
 
     private Map<String, BusinessDepartmentVO> departmentVOMap = new LinkedHashMap<String, BusinessDepartmentVO>();
 
+    /**
+     * 初始化测试数据；
+     */
     @PostConstruct
     private void init(){
         //未连接数据库，此为模拟数据
@@ -49,6 +52,11 @@ public class DepartmentController {
         departmentVOMap.put(departmentVO6.getId(), departmentVO6);
     }
 
+    /**
+     * 返回候选的部门清单；
+     * 
+     * @return
+     */
     @HttpGet("/department/all")
     public synchronized BusinessDepartmentVO[] getAll(){
         return CollectionUtils.toArray(departmentVOMap.values(), BusinessDepartmentVO.class);
