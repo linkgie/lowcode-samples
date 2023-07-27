@@ -1,0 +1,39 @@
+.demo {
+  width: 100%;
+  padding: 20px 0px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+.settings{
+  position: absolute;
+  top: 8rem;
+  right: 0;
+  width: 32rem;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content:flex-start;
+  align-items:flex-start;
+
+  row-gap: 1rem;
+
+}
+
+.mode-bar {
+  height: 3rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+
+  column-gap: 0.5rem;
+}

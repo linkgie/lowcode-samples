@@ -4,7 +4,7 @@ import { BootstrapIcons,ElIcons } from "flexue-icons";
 Logger.level = "INFO";
 Logger.get("flexue.components.x-databoard").level = "DEBUG";
 
-import LOGO from "../assets/logo.png";
+import LOGO from "../../assets/logo.png";
 
 // import { Views, DefaultView } from "./views/views.js";
 import Contract from "./contracts/contract.vue";

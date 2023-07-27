@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+
+<div class="demo">
+	<h2>项目合同管理</h2>
+	<div class="settings">
+		<div class="settings-item">
+			<span>表单布局：</span>
+			<div class="mode-bar">
+				<x-button actionKey="btnBottomLayout" text="底部" :pattern="btnBottomLayout" icon="bs-svg-box-arrow-in-down" width="auto" @click="setLayout('bottom')" />
+				<x-divider vertical length="1rem"/>
+				<x-button actionKey="btnRightLayout" text="右侧" :pattern="btnRightLayout" icon="bs-svg-box-arrow-in-right" width="auto" @click="setLayout('right')" />
+				<x-divider vertical length="1rem"/>
+				<x-button actionKey="btnTopLayout" text="顶部" :pattern="btnTopLayout" icon="bs-svg-box-arrow-in-up" width="auto" @click="setLayout('top')" />
+				<x-divider vertical length="1rem"/>
+				<x-button actionKey="btnLeftLayout" text="左侧" :pattern="btnLeftLayout" icon="bs-svg-dash-square-box-arrow-in-left" width="auto" @click="setLayout('left')" />
+			</div>
+		</div>
+		<div class="settings-item">
+			<span>字段分组：</span>
+			<div class="mode-bar">
+				<x-button actionKey="btnCardPattern" text="卡片" :pattern="btnCardPattern" icon="bs-svg-view-stacked" width="auto" @click="setGroupPattern('card')" />
+				<x-divider vertical length="1rem"/>
+				<x-button actionKey="btnTabPattern" text="页签" :pattern="btnTabPattern" icon="bs-svg-folder" width="auto" @click="setGroupPattern('tab')" />
+				<x-divider vertical length="1rem"/>
+				<x-button actionKey="btnDividerPattern" text="分割线" :pattern="btnDividerPattern" icon="bs-svg-distribute-vertical" width="auto" @click="setGroupPattern('divider')" />
+				<x-divider vertical length="1rem"/>
+				<x-button actionKey="btnNoneGroup" text="无" :pattern="btnNonePattern" icon="bs-svg-dash-square-dotted" width="auto" @click="setGroupPattern(undefined)" />
+			</div>
+		</div>
+		<div class="settings-item">
+			<span>标签对齐：</span>
+			<div class="mode-bar">
+				<x-button actionKey="btnLabelAlignLeft" text="左对齐" :pattern="btnLabelLeftPattern" icon="bs-svg-align-start" width="auto" @click="setLabelAlign('left')" />
+				<x-divider vertical length="1rem"/>
+				<x-button actionKey="btnLabelAlignRight" text="右对齐" :pattern="btnLabelRightPattern" icon="bs-svg-align-end" width="auto" @click="setLabelAlign('righ')" />
+				<x-divider vertical length="1rem"/>
+				<x-button actionKey="btnLabelAlignTop" text="顶对齐" :pattern="btnLabelTopPattern" icon="bs-svg-align-top" width="auto" @click="setLabelAlign('top')" />
+			</div>
+		</div>
+	</div>
+
+
+	<x-dataform
+		ref="contract-form"
+
+		mode="simple"
+		
+		width="100%"
+		:max-width="formMaxWidth"
+
+	    field-columns="2"
+	    default-field-span="1"
+	    :field-spans="{
+			code:2,
+			title:2,
+			address:2,
+			remark:2,
+			contractPages:2,
+			attachments:2,
+		}"
+	    label-width="120px"
+
+		submitting-button-text="提交"
+
+		:dock-layout="formLayout"
+
+		:disable-group="disableGroup"
+		:group-pattern="groupPattern"
+		tab-layout="top"
+		
+		:label-layout="labelAlign"
+	
+
+	    data-interface="com.linkgie.lowcode.demo.contracts.web.model.ContractInfoVI,
+	    				com.linkgie.lowcode.demo.contracts.web.model.ContractDepartmentInfoVI,
+	    				com.linkgie.lowcode.demo.contracts.web.model.ContractExtInfoVI"
+		
+		:metadata="{
+			props:{
+				fields:{
+					salesDepartment:{ mode:'selector' },
+					supportsDepartments:{ mode:'selector' },
+				}
+			}
+		}"
+
+		data-binding="ds-contracts"
+		:reference-databindings="{
+			salesEmployees:'ds-employees', 
+			salesDepartment:'ds-departments', 
+			supportsDepartments:'ds-departments'
+		}"
+	>
+	</x-dataform>
+</div>
+
+<x-datasource
+    name="ds-contracts"
+    model="com.linkgie.lowcode.demo.contracts.web.model.ContractVO"
+	refresh-on-init="false"
+>
+    <!-- <x-http-binding name="query" service="contract-controller" method="GET" path="/contract/all" refresh></x-http-binding> -->
+    <x-http-binding name="insert" service="contract-controller" method="POST" path="/contract" accept-response></x-http-binding>
+</x-datasource>
+
+<x-datasource
+    name="ds-departments"
+    model="com.linkgie.lowcode.demo.contracts.web.model.BusinessDepartmentVO"
+>
+	<x-http-binding name="query" service="department-controller" method="GET" path="/department/all" refresh></x-http-binding>
+</x-datasource>
+
+<x-datasource
+    name="ds-employees"
+    model="com.linkgie.lowcode.demo.contracts.web.model.BusinessEmployeeVO"
+>
+    <x-http-binding name="query" service="employee-controller" method="GET" path="/employee/all" refresh></x-http-binding>
+</x-datasource>
+

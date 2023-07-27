@@ -7,11 +7,17 @@ module.exports = {
   //publicPath:"/static",
   pages: {
 
-    demo: {
+    constracts_1: {
       template: "public/template.html",
-      entry: "src/contracts-main.js",
+      entry: "src/contracts-1/main.js",
       filename: "contract.html",
-      title: "星河低代码 | 示例",
+      title: "星河低代码 | 示例: 合同管理表单",
+    },
+    constracts_2: {
+      template: "public/template.html",
+      entry: "src/contracts-2/main.js",
+      filename: "contract-2.html",
+      title: "星河低代码 | 示例: 合同管理表单(动态）",
     },
     
   },
