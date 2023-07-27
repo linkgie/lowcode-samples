@@ -1,3 +1,58 @@
+.container{
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: nowrap;
+  column-gap: 2rem;
+}
+
+.sidebar{
+  width: 30%;
+  max-width: 40rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem 1rem;
+}
+
+.sidebar .settings{
+  width: 100%;
+  max-width: 24rem;
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 2rem;
+}
+
+.settings-item{
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  row-gap: 0.5rem;
+}
+
+.mode-bar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.8rem;
+}
+
+
+
 .demo {
   width: 100%;
   padding: 20px 0px;
@@ -10,30 +65,3 @@
   position: relative;
 }
 
-.settings{
-  position: absolute;
-  top: 8rem;
-  right: 0;
-  width: 32rem;
-
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-start;
-  align-items:flex-start;
-
-  row-gap: 1rem;
-
-}
-
-.mode-bar {
-  height: 3rem;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-end;
-  align-items: center;
-
-  column-gap: 0.5rem;
-}
