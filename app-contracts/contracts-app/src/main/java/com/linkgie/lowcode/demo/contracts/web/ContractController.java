@@ -11,6 +11,9 @@ import com.linkgie.galaxyframework.web.HttpPost;
 import com.linkgie.galaxyframework.web.HttpService;
 import com.linkgie.lowcode.demo.contracts.web.model.ContractVO;
 
+/**
+ * 合同服务；
+ */
 @HttpService
 public class ContractController {
 

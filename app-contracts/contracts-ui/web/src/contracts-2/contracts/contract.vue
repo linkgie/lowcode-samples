@@ -1,3 +1,55 @@
-<template src="./contract.html"></template>
-<style src="./contract.css" scoped></style>
-<script src="./contract.js"></script>
+<template>
+    <div class="demo">
+        <h2>项目合同管理</h2>
+        <x-dataform ref="contract-form" mode="simple" width="100%" max-width="840px" field-columns="2"
+            default-field-span="1" 
+            :field-spans="{
+                code:2,
+                title:2,
+                address:2,
+                remark:2,
+                contractPages:2,
+                attachments:2,
+            }" 
+            label-width="120px" dock-layout="bottom" 
+            data-interface="com.linkgie.lowcode.demo.contracts.web.model.ContractInfoVI,
+                            com.linkgie.lowcode.demo.contracts.web.model.ContractDepartmentInfoVI,
+                            com.linkgie.lowcode.demo.contracts.web.model.ContractExtInfoVI" 
+            :metadata="{
+                props:{
+                    fields:{
+                        salesDepartment:{ mode:'selector' },
+                        supportsDepartments:{ mode:'selector' },
+                    }
+                }
+            }" 
+            data-binding="ds-contracts" 
+            :reference-databindings="{
+                salesEmployees:'ds-employees', 
+                salesDepartment:'ds-departments', 
+                supportsDepartments:'ds-departments'
+            }">
+        </x-dataform>
+    </div>
+    <x-datasource name="ds-contracts" model="com.linkgie.lowcode.demo.contracts.web.model.ContractVO"
+        refresh-on-init="false">
+        <x-http-binding name="insert" service="contract-controller" method="POST" path="/contract"
+            accept-response></x-http-binding>
+    </x-datasource>
+    <x-datasource name="ds-departments" model="com.linkgie.lowcode.demo.contracts.web.model.BusinessDepartmentVO">
+        <x-http-binding name="query" service="department-controller" method="GET" path="/department/all"
+            refresh></x-http-binding>
+    </x-datasource>
+    <x-datasource name="ds-employees" model="com.linkgie.lowcode.demo.contracts.web.model.BusinessEmployeeVO">
+        <x-http-binding name="query" service="employee-controller" method="GET" path="/employee/all"
+            refresh></x-http-binding>
+    </x-datasource>
+</template>
+<script lang="js">
+    export default {
+    name: "demo-contracts",
+
+    methods: {},
+    };
+</script>
+<style lang="css"></style>

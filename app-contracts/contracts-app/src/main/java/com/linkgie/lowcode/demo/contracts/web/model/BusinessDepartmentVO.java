@@ -3,7 +3,7 @@ package com.linkgie.lowcode.demo.contracts.web.model;
 import com.linkgie.galaxyframework.metadata.*;
 
 /**
- * 销售部门；
+ * 部门；
  * 
  * @author huanghaiquan
  *

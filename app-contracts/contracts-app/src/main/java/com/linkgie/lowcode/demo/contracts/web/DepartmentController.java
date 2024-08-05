@@ -9,6 +9,9 @@ import javax.annotation.PostConstruct;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 部门服务；
+ */
 @HttpService
 public class DepartmentController {
 

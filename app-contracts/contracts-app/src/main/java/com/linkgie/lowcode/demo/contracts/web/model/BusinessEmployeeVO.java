@@ -2,6 +2,9 @@ package com.linkgie.lowcode.demo.contracts.web.model;
 
 import com.linkgie.galaxyframework.metadata.*;
 
+/**
+ * 员工；
+ */
 @DataEntity
 public class BusinessEmployeeVO implements BusinessEmployeeVI {
     @DataKey
@@ -55,5 +58,4 @@ public class BusinessEmployeeVO implements BusinessEmployeeVI {
 	public void setBusness(String busness) {
 		this.busness = busness;
 	}
-    
 }
