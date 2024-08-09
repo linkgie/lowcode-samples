@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>com.linkgie.galaxylowcode.starter</groupId>
+		<artifactId>gapp-starter</artifactId>
+		<version>2.8.4.RELEASE</version>
+	</parent>
+	
+	<!-- 此 gapp 项目是应用入口模块，调试运行入口和打包入口都从此项目开始 -->
+	<!-- 要包含到最终运行和发布内容中的其它内容——依赖和资源等，都需要加入到此项目的 pom.xml 中 -->
+	<groupId>my.galaxy.demos</groupId>
+	<artifactId>sample-001</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<packaging>gapp</packaging>
+
+	<properties>
+		<!-- 应用开发调试启动类的名称（不要含包名） -->
+		<booter.name>Sample001Booter</booter.name>
+		<!-- GDK 版本-->
+		<galaxy.version>2.8.7.RELEASE</galaxy.version>
+	</properties>
+	
+
+
+	<dependencies>
+		<!-- 应用所需的其它模块或其它第三方包 -->
+		<!--  
+		<dependency>
+			<groupId>thirdpart.dependency.groupId</groupId>
+			<artifactId>thirdpart.dependency.artifactId</artifactId>
+			<version>thirdpart.dependency.version</version>
+		</dependency> 
+		-->
+
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<!-- 集成 UI 工程的编译插件，通过属性 web-project.dir 指定 UI 工程目录 -->
+			<!-- 在当前项目之前自动执行 npm run build 命令 -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- GAPP 开发运行插件 -->
+			<plugin>
+				<groupId>com.linkgie.galaxytools.plugins</groupId>
+				<artifactId>galaxy-app-plugin</artifactId>
+			</plugin>
+
+			<!-- GAPP 发布插件 -->
+			<!-- 用于发布并生成应用的本地化安装包 -->
+			<!-- 注：
+					1. 安装包将应用代码与星河低代码运行时引擎(GRE)集成到一起；
+					2. 安装包的根目录也是是应用运行时的 GRE 主目录 
+			-->
+			<plugin>
+				<groupId>com.linkgie.galaxytools.plugins</groupId>
+				<artifactId>galaxy-app-publish-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<repositories>
+		<repository>
+			<id>linkgie-repo</id>
+			<url>https://maven.linkgie.com/repository/maven-public/</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>linkgie-repo</id>
+			<url>https://maven.linkgie.com/repository/maven-public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+</project>
