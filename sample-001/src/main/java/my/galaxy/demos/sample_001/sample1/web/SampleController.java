@@ -17,10 +17,8 @@ public class SampleController{
 
 	private LinkedHashMap<String, SampleVO> sampleVos = new LinkedHashMap<>();
 
-	
-
 	/**
-	 * 
+	 * 初始化示例数据；
 	 */
 	public SampleController() {
 		for (int i = 0; i < 4; i++) {
