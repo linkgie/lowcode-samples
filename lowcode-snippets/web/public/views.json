@@ -1,0 +1,166 @@
+{
+    "dynamic-1.view": {
+        "path": "/dynamic-1.view",
+        "title": "动态视图1 - 动态表单",
+        "view": {
+            "name": "x-form",
+
+            "props": {
+                "style": {
+                    "width": "100%"
+                },
+                "label-width": "100px",
+                "label-layout": "right",
+                "row-height": "auto",
+
+                "title": "表单分组",
+                "group-label-hidden": true,
+                "group-pattern": "card",
+                "tab-layout": "left",
+
+                "readonly": false,
+                "writeonly": true,
+                "keep-editing-on-rebind": true,
+                "field-columns": "2",
+                "field-spans": {
+                    "description": 2,
+                    "members": 2
+                },
+
+                "metadata": {
+                    "props": {
+                        "fields": {
+                            "members": {
+                                "pattern": "card"
+                            }
+                        }
+                    }
+                },
+
+                "dataBinding": {
+                    "model": "com.linkgie.flexue.demo.FormVO",
+                    "data": {
+                        "code": "水分子（`H_2O`）",
+                        "name": "变化曲线[`X^2-Y_2`]"
+                    }
+                },
+                "data-interface": "com.linkgie.flexue.demo.FormVO"
+            }
+        }
+    },
+    "dynamic-2.view": {
+        "path": "/dynamic-2.view",
+        "title": "动态视图2 - 动态多层复合组件",
+        "view": [
+            "[纯文本内容]内容啊啊啊啊啊。。。222",
+            {
+                "name": "el-card",
+
+                "keepAlive": true,
+
+                "props": {
+                    "header": "动态面板",
+                    "style": {
+                        "width": "100%"
+                    }
+                },
+
+                "components": [{
+                    "name": "x-button",
+
+                    "props": {
+                        "key": "btnTest",
+
+                        "text": "测试",
+
+                        "pattern": "primary",
+
+                        "style": {
+                            "width": "100%"
+                        }
+                    }
+                }],
+
+                "text": "面板的内容啊。。。。",
+
+                "slots": [{
+                        "name": "header",
+                        "components": {
+                            "name": "el-tag",
+                            "text": "面板标题"
+                        }
+                    },
+                    {
+                        "components": {
+                            "name": "el-tag",
+                            "text": "内容啊啊啊啊啊111。。。111"
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "br",
+                "props": {}
+            },
+            {
+                "name": "x-divider",
+                "props": {
+                    "style": {
+                        "width": "100%",
+                        "padding": "20px 0"
+                    }
+                }
+            },
+            {
+                "name": "span",
+                "props": {
+                    "modelValue": "AAA"
+                }
+            },
+            {
+                "name": "x-divider",
+                "props": {
+                    "style": {
+                        "width": "100%",
+                        "padding": "20px 0"
+                    }
+                }
+            }
+        ]
+    },
+    "dynamic-3.view": {
+        "path": "/dynamic-3.view",
+        "title": "动态视图3 - 组件插槽变量传递",
+        "view": [{
+            "name": "x-groups",
+
+            "props": {
+                "label": "动态面板",
+                "pattern": "tab",
+
+                "style": {
+                    "width": "100%",
+                    "height": "800px"
+                },
+
+                "groupData": [{
+                        "label": "T1",
+                        "content": "[分组1]  面板的内容啊ss。。。。"
+                    },
+                    {
+                        "label": "T2",
+                        "content": "[分组2]  asdfasddfadf"
+                    }
+                ]
+            },
+
+            "slots": [{
+                "components": {
+                    "slotScope": {
+                        "text": "data.content"
+                    }
+                }
+            }]
+        }]
+    }
+}

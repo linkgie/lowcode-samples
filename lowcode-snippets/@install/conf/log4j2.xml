@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="10">
+	<Properties>
+		<Property name="LOG_EXCEPTION_CONVERSION_WORD" value="%xwEx" />
+		<Property name="LOG_LEVEL_PATTERN" value="%5p" />
+		<Property name="LOG_DATE_PATTERN"
+			value="yyyy-MM-dd HH:mm:ss.SSS" />
+		<Property name="CONSOLE_LOG_PATTERN"
+			value="%clr{%d{${LOG_DATE_PATTERN}}}{faint} %clr{${LOG_LEVEL_PATTERN}} %clr{%pid}{magenta} %clr{---}{faint} %clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan} %clr{:}{faint} %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}" />
+		<Property name="FILE_LOG_PATTERN"
+			value="%d{${LOG_DATE_PATTERN}} ${LOG_LEVEL_PATTERN} %pid --- [%t] %-40.40c{1.} : %m%n${sys:LOG_EXCEPTION_CONVERSION_WORD}" />
+	</Properties>
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT" follow="true">
+			<PatternLayout pattern="${CONSOLE_LOG_PATTERN}" />
+		</Console>
+		<!-- 滚动日志文件配置，采用 .gz 文件扩展名自动启用日志压缩； -->
+		<RollingFile name="LogAll"
+			fileName="${sys:APP_LOG_ROOT}/all.log"
+			filePattern="${sys:APP_LOG_ROOT}/$${date:yyyy-MM}/all-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout pattern="${FILE_LOG_PATTERN}" />
+			<Policies>
+				<SizeBasedTriggeringPolicy size="20 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="100" />
+		</RollingFile>
+		<!-- 滚动日志文件配置，采用 .gz 文件扩展名自动启用日志压缩； -->
+		<RollingFile name="LogError"
+			fileName="${sys:APP_LOG_ROOT}/error.log"
+			filePattern="${sys:APP_LOG_ROOT}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log.gz">
+			<PatternLayout pattern="${FILE_LOG_PATTERN}" />
+			<ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="10 KB" />
+			</Policies>
+			<DefaultRolloverStrategy max="100" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		<!-- 生产环境的日志配置：所有日志输出到 LogAll（含错误日志）， 其中把错误日志单独再输出另一份到 LogError -->
+		<Root level="INFO">
+			<Appender-Ref ref="LogAll" />
+			<Appender-Ref ref="LogError" />
+		</Root>
+		
+		<Logger name="org.springframework" level="WARN" >
+			<Appender-Ref ref="Console" />
+		</Logger>
+		<!-- 启动过程相关的信息同步输出到控制台和日志文件 -->
+		<Logger name="org.springframework.boot.SpringApplication" level="INFO">
+		</Logger>
+		<Logger name="org.springframework.boot.web.embedded.tomcat.TomcatWebServer" level="INFO">
+		</Logger>
+		<Logger name="com.linkgie.galaxyplatform" level="INFO">
+			<Appender-Ref ref="Console" />
+		</Logger>
+		<!-- <Logger name="com.linkgie.galaxyplatform.shell.ssh.SshShellServer" level="INFO">
+			<Appender-Ref ref="Console" />
+		</Logger>
+		<Logger name="com.linkgie.galaxyplatform.server.context.Application" level="INFO">
+			<Appender-Ref ref="Console" />
+		</Logger> -->
+		
+	</Loggers>
+</Configuration>

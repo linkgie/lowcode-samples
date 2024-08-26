@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.linkgie.lowcode.manuls.lowcode_snippets.AppConfiguration

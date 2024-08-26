@@ -1,0 +1,8 @@
+publicKey=244VaL9DcqhKBYSde9KoDvnddGZhPs5mqtZmuMkabTxJ3nfSN6foMCY2Xdk5DtmgSNehKAAs52fd4kd8Jznc2JQQefuVQ
+privateKey=oa2VubW2NSLnRL73Ju8uNedY3XfFojPwmAkBZxLS8ixgTus
+applicationUid=1111Dr318cTJpQYwNvPECRSSevb6SdLsRGehm
+group=com.linkgie.lowcode.manuls
+code=lowcode-snippets
+description=星河低代码示例，其中的示例代码会自动集成到文档中心。
+keyAlgorithm=SM2
+name=星河低代码示例
