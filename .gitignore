@@ -25,3 +25,4 @@ target/
 
 .gitmodules_bak
 *.local
+effective-pom.xml
